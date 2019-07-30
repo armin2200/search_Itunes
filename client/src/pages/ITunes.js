@@ -6,6 +6,8 @@ import Loading from '../components/Loading';
 import NavBar from '../components/NavBar';
 import { ITunesContext } from '../context/ITunesContext.js';
 
+const set = JSON.parse(localStorage.getItem('favorites'));
+
 const ITunes = () => {
   // const [songs, setSongs] = useState();
   // const [featureMovie, SetFeatureMovie] = useState();
@@ -13,7 +15,7 @@ const ITunes = () => {
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState();
   const [favoritesCount, setFavoritesCount] = useState(
-    Object.keys(JSON.parse(localStorage.getItem('favorites'))).length
+    set ? Object.keys(set).length : 0
   );
 
   useEffect(() => {
