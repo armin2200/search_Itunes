@@ -50,16 +50,12 @@ router.post('/', async (req, res, next) => {
       return acc;
     }, {});
     delete result['undefined'];
-    let test = 0;
-    Object.keys(result).forEach(el => {
-      //   console.log(result.el.length);
-      test += result[el].length;
-    });
+
     setTimeout(() => {
       res.status(200).json({
         ...result
       });
-    }, 2000);
+    }, 1000); //for loading page component (test)
   } catch (e) {
     next(e);
   }
